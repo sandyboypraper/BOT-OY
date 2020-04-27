@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./p5.js"></script>
+    <script src="./matter.js"></script>
+    <script src="./Main.js"></script>
+    <script src="./GameLayers.js"></script>
+    <script src="./Player.js"></script>
+    <script src="./Asstes.js"></script>
+    <script src="./Controllers.js"></script>
+    <script src="./Bullets.js"></script>
+    <script src="./Walls.js"></script>
+    <script src="./Server.js"></script>
+    <script src="./OtherPlayers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+
+    <link rel="stylesheet" href="./index.css" />
+
+
+    <title>BOT|OY</title>
+</head>
+
+<body onload="tiltMobile()">
+
+    <div class="modal">
+        <p>
+            First make sure you are in landscape mode.
+            then refresh the page
+            And
+            Press <code>ok</code> For <code>Gaming Mode</code>
+            <br />
+
+            <button onclick="mobileMode()" class="pulse">OK</button>
+
+        </p>
+    </div>
+    <!-- 
+    <div class="modal modal-for-tilt">
+        <p>Please Tilt your mobile to landscape mode for better experience</p>
+    </div> -->
+
+    <script>
+
+        function tiltMobile() {
+            // setInterval(function () {
+            //     if (window.matchMedia("(orientation: landscape)").matches) {
+            //         document.getElementsByClassName("modal")[0].style.display = "none";
+            //         document.getElementsByClassName("modal-for-tilt")[0].style.display = "block";
+            //     }
+            //     else {
+            //         let lenn = document.getElementsByClassName("modal-for-tilt").length;
+            //         for (let i = 0; i < lenn; i++) {
+            //             document.getElementsByClassName("modal-for-tilt")[i].style.display = "none";
+            //         }
+            //     }
+            // }, 1000)
+        }
+
+    </script>
+
+</body>
+
+</html>
