@@ -32,4 +32,14 @@ function EnvironmentPlayers(data) {
             }
         }
     }
+
+    this.removePlayer = function (name) {
+        for (let i = 0; i < this.children.length; i++) {
+            if (this.children[i].name == name) {
+                this.children.splice(i, 1);
+                i--;
+                break;
+            }
+        }
+    }
 }

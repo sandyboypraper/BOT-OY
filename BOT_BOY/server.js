@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var port = 3001;
+var port = 3000;
 var server = app.listen(port);
 
 app.use(express.static('public'));
@@ -19,6 +19,8 @@ var dataBase = {
 
 io.of("/games").on("connection", (socket) => {
     socket.on("joinroom", (data) => {
+
+        console.log("joined", data);
         var data = JSON.parse(data);
         socket.join(data.room);
 
@@ -40,6 +42,13 @@ io.of("/games").on("connection", (socket) => {
     socket.on("broad-Cast-player-controlles", (data) => {
         var data = JSON.parse(data);
         socket.broadcast.to(data.room).emit("recieved-player-controlles", JSON.stringify(data));
+    })
+
+    socket.on("leave-the-room", (data) => {
+        var data = JSON.parse(data);
+        console.log("room leaved", data.room);
+        socket.leave(data.room);
+        socket.broadcast.to(data.room).emit("room-leaved-by", data.name);
     })
 
     // socket.on("playersFlow", (data) => {

@@ -90,3 +90,4 @@ function mobileMode() {
     setup(false);
     document.getElementsByClassName("modal")[0].style.display = "none";
 }
+

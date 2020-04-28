@@ -61,6 +61,11 @@
             // }, 1000)
         }
 
+        window.addEventListener('unload', function (e) {
+            e.preventDefault();
+            LeaveTheGame();
+        });
+
     </script>
 
 </body>

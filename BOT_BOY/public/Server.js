@@ -43,6 +43,7 @@ function Connects() {
     socket.emit("joinroom", gameData());
     socket.on("playerAdded", (data) => {
         var data = JSON.parse(data);
+        console.log(data, "New Player In Town");
         new OtherPlayers(envPlayers, data.playerData.xx, data.playerData.yy,
             data.playerData.sx, data.playerData.sy, data.playerData.botName, data.name)
     })
@@ -61,10 +62,13 @@ function Connects() {
         var data = JSON.parse(data);
         console.log(data);
         envPlayers.setState(data.name, data.playerData);
-
         // new OtherPlayers(envPlayers, data.playerData.xx, data.playerData.yy,
         //     data.playerData.sx, data.playerData.sy, data.playerData.botName, data.name)
 
+    })
+
+    socket.on("room-leaved-by", (name) => {
+        envPlayers.removePlayer(name);
     })
 }
 
@@ -73,3 +77,7 @@ function Connects() {
 function BroadCastPlayerControlles(playerData) {
     socket.emit("broad-Cast-player-controlles", JSON.stringify({ room, playerData, name }));
 }
+
+function LeaveTheGame() {
+    socket.emit("leave-the-room", JSON.stringify({ room, name }));
+} 
