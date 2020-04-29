@@ -31,6 +31,7 @@ function Player(objLayer, xx, yy, sx, sy, botName) {
     this.bulletForce = 0.0009
 
     this.body = Matter.Bodies.rectangle(xx, yy, sx, sy, this.options);
+    this.body.label = "player";
     // Body.applyForce(this.body, { x: xx, y: yy }, { x: 0, y: 0 })
     World.add(world, this.body);
 
@@ -86,8 +87,8 @@ function Player(objLayer, xx, yy, sx, sy, botName) {
     }
 
     this.Shoot = function () {
-        var x = this.body.position.x + 12 * cos(this.rotation);
-        var y = this.body.position.y + 12 * sin(this.rotation);
+        var x = this.body.position.x + 30 * cos(this.rotation);
+        var y = this.body.position.y + 30 * sin(this.rotation);
         this.bullets.push(new NormalBullets
             (x, y, 5, { x: this.bulletForce * cos(this.rotation), y: this.bulletForce * sin(this.rotation) }, this.bulletRange));
 

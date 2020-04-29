@@ -21,6 +21,7 @@ function Walls() {
         var width = random(random(1, 5) * this.wallMinW, random(1, 5) * this.wallMaxW);
         var height = random(random(1, 5) * this.wallMinW, random(1, 5) * this.wallMaxW);
         this.wallsArray.push(Matter.Bodies.rectangle(xx, yy, width, height, this.options));
+        this.wallsArray[i].label = "wall";
         this.wallsWH.push({ width, height });
     }
 

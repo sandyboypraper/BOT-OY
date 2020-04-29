@@ -24,6 +24,7 @@ function OtherPlayers(objLayer, xx, yy, sx, sy, playerSprite, name) {
     this.bulletForce = 0.0009
 
     this.body = Matter.Bodies.rectangle(xx, yy, sx, sy, this.options);
+    this.body.label = "otherPlayer"
     // Body.applyForce(this.body, { x: xx, y: yy }, { x: 0, y: 0 })
     World.add(world, this.body);
 

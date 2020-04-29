@@ -6,6 +6,7 @@ function NormalBullets(xx, yy, rr, force, bulletRange) {
     this.collides = false;
 
     this.body = Matter.Bodies.circle(xx, yy, rr);
+    this.body.label = "bullets";
     Matter.Body.applyForce(this.body, { x: this.body.position.x, y: this.body.position.y }, force)
     this.body.restitution = 1;
     World.add(world, this.body);

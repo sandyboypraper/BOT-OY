@@ -37,13 +37,15 @@ function setup(flag = true) {
         //     playerState: player.state
         // }
 
-        walls = new Walls();
+        // walls = new Walls();
 
         angleMode(DEGREES);
 
         controller = new PlayerController(player);
 
         Connects();
+
+        Matter.Events.on(engine, 'collisionStart', collision);
     }
 }
 
@@ -57,7 +59,7 @@ function draw() {
 function StaticRender() {
 
     player.CameraFollow();
-    walls.Update();
+    // walls.Update();
 }
 
 function FixUpdate() {

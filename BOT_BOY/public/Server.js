@@ -80,4 +80,8 @@ function BroadCastPlayerControlles(playerData) {
 
 function LeaveTheGame() {
     socket.emit("leave-the-room", JSON.stringify({ room, name }));
-} 
+}
+
+function iamDead() {
+    socket.emit("leave-the-room", JSON.stringify({ room, name }));
+}

@@ -46,7 +46,8 @@ function PlayerController(player) {
             return;
         }
 
-        player.state = "Idle";
+        if (player.state != "Shoot")
+            player.state = "Idle";
 
         touches.forEach(element => {
             if (this.IsLeftTopCornner(element)) {
