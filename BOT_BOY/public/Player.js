@@ -47,8 +47,9 @@ function Player(objLayer, xx, yy, sx, sy, botName) {
         background(bg)
     }
 
+
     this.Update = function () {
-        this[this.state]();
+        // this[this.state]();
 
         // updated body.x , body.y 
         Matter.Body.setVelocity(this.body, this.velocity);
@@ -60,6 +61,29 @@ function Player(objLayer, xx, yy, sx, sy, botName) {
         fill(34);
         image(this.playerSprite, 0, 0, this.sx, this.sy);
         pop();
+
+        push();
+        translate(this.body.position.x - displayWidth / 2, this.body.position.y - displayHeight / 2);
+        drawGui();
+
+        pop();
+
+        if (j.isChanged) {
+            let v0 = createVector(j.valX, -j.valY);
+            let v1 = createVector(1, 0);
+            let angleBetween = v0.angleBetween(v1);
+            this.rotation = angleBetween;
+        } if (t.val) {
+            this.Move();
+        }
+        if (!t.val) {
+            this.Idle();
+        }
+
+        if (fullscreenButton.val) {
+            mobileMode();
+            fullscreenButton.val = false;
+        }
 
         for (let i = 0; i < this.bullets.length; i++) {
             this.bullets[i].Update();
@@ -87,16 +111,17 @@ function Player(objLayer, xx, yy, sx, sy, botName) {
     }
 
     this.Shoot = function () {
-        var x = this.body.position.x + 30 * cos(this.rotation);
-        var y = this.body.position.y + 30 * sin(this.rotation);
-        this.bullets.push(new NormalBullets
-            (x, y, 5, { x: this.bulletForce * cos(this.rotation), y: this.bulletForce * sin(this.rotation) }, this.bulletRange));
+        // tankShoot.play();
+        // var x = this.body.position.x + 30 * cos(this.rotation);
+        // var y = this.body.position.y + 30 * sin(this.rotation);
+        // this.bullets.push(new NormalBullets
+        //     (x, y, 5, { x: this.bulletForce * cos(this.rotation), y: this.bulletForce * sin(this.rotation) }, this.bulletRange));
 
-        this._ShootingDuration--;
-        if (this._ShootingDuration == 0) {
-            this.state = "Idle";
-            this._ShootingDuration = this.ShootingDuration;
-        }
+        // this._ShootingDuration--;
+        // if (this._ShootingDuration == 0) {
+        //     this.state = "Idle";
+        //     this._ShootingDuration = this.ShootingDuration;
+        // }
     }
 
 }

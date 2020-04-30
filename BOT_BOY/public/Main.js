@@ -15,9 +15,25 @@ var otherObjects = [];
 var bg;
 
 
+//sounds
+var tankShoot, tankRun;
+
+var gui, b, j, fullscreenButton;
+
+
 // p5 functions
 function setup(flag = true) {
+
     createCanvas(displayWidth, displayHeight);
+
+    gui = createGui();
+    fullscreenButton = createToggle("[  ]", 20, 20, 50, 50);
+    j = createSlider2d("Joystick", 20, displayHeight - 170, 150, 150, -1, 1, 1, -1);
+    t = createToggle("R", displayWidth - 120, displayHeight - 120, 50, 50);
+
+
+    tankRun = loadSound('sounds/tankRun.mp3');
+    tankShoot = loadSound('sounds/tankShoot.mp3');
 
     bg = loadImage('images/background1.jpg');
 
@@ -37,7 +53,7 @@ function setup(flag = true) {
         //     playerState: player.state
         // }
 
-        // walls = new Walls();
+        walls = new Walls();
 
         angleMode(DEGREES);
 
@@ -57,13 +73,14 @@ function draw() {
 }
 
 function StaticRender() {
-
     player.CameraFollow();
-    // walls.Update();
+    walls.Update();
+
 }
 
 function FixUpdate() {
-    controller.Controlles();
+
+    // controller.Controlles();
     Engine.update(engine);
 }
 
@@ -72,6 +89,7 @@ function Update() {
 }
 
 function LateUpdate() {
+
     // if (player.state != prevState.playerState) {
     //     prevState["playerState"] = player.state;
     if (player.state == "Move" || player.state == "RotateAntiClockWise" || player.state == "RotateClockWise" || player.state == "Shoot")
@@ -89,7 +107,6 @@ function Render() {
 function mobileMode() {
     let fs = fullscreen();
     fullscreen(!fs);
-    setup(false);
-    document.getElementsByClassName("modal")[0].style.display = "none";
+    // setup(false);
+    // document.getElementsByClassName("modal")[0].style.display = "none";
 }
-

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="./p5.js"></script>
-    <script src="./matter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <script src=" ./matter.js"></script>
     <script src="./Main.js"></script>
     <script src="./GameLayers.js"></script>
     <script src="./Player.js"></script>
@@ -17,7 +18,12 @@
     <script src="./Server.js"></script>
     <script src="./OtherPlayers.js"></script>
     <script src="./Collisions.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <!-- p5.touchgui -->
+    <script src="https://unpkg.com/p5.touchgui@0.5.2/lib/p5.touchgui.js"></script>
 
 
     <link rel="stylesheet" href="./index.css" />
@@ -28,7 +34,7 @@
 
 <body onload="tiltMobile()">
 
-    <div class="modal">
+    <!-- <div class="modal">
         <p>
             First make sure you are in landscape mode.
             then refresh the page
@@ -39,7 +45,7 @@
             <button onclick="mobileMode()" class="pulse">OK</button>
 
         </p>
-    </div>
+    </div> -->
     <!-- 
     <div class="modal modal-for-tilt">
         <p>Please Tilt your mobile to landscape mode for better experience</p>

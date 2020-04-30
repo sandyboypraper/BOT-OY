@@ -41,14 +41,15 @@ io.of("/games").on("connection", (socket) => {
 
     socket.on("broad-Cast-player-controlles", (data) => {
         var data = JSON.parse(data);
+
         socket.broadcast.to(data.room).emit("recieved-player-controlles", JSON.stringify(data));
     })
 
     socket.on("leave-the-room", (data) => {
         var data = JSON.parse(data);
         console.log("room leaved", data.room);
-        socket.leave(data.room);
         socket.broadcast.to(data.room).emit("room-leaved-by", data.name);
+        socket.leave(data.room);
     })
 
     // socket.on("playersFlow", (data) => {

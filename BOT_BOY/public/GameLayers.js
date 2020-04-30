@@ -36,10 +36,13 @@ function EnvironmentPlayers(data) {
     this.removePlayer = function (name) {
         for (let i = 0; i < this.children.length; i++) {
             if (this.children[i].name == name) {
+                console.log("shot out dead env player", name)
                 this.children.splice(i, 1);
                 i--;
                 break;
             }
         }
+
+        console.log(this.children, "shot out")
     }
 }

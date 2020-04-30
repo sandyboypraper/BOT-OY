@@ -60,7 +60,6 @@ function Connects() {
     // data = room , playerData(state , position , rotation) , name
     socket.on("recieved-player-controlles", (data) => {
         var data = JSON.parse(data);
-        console.log(data);
         envPlayers.setState(data.name, data.playerData);
         // new OtherPlayers(envPlayers, data.playerData.xx, data.playerData.yy,
         //     data.playerData.sx, data.playerData.sy, data.playerData.botName, data.name)
